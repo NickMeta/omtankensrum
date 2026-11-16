@@ -1,0 +1,156 @@
+OMTANKENS RUM - WEBBPLATSEN
+===========================
+
+Vanliga HTML-filer. Ingen WordPress, inget konto hos nagon annan,
+ingenting som behover uppdateras varje manad. Allt utom
+bokningsformularet fungerar aven utan PHP.
+
+
+SA HAR TESTKOR DU PA LOOPIA
+---------------------------
+
+1. Logga in i Loopias kundzon.
+
+2. Ladda upp ALLT som ligger i den har mappen till
+      /omtankensrum.se/public_html/
+   Antingen med Loopias filhanterare i kundzonen, eller med
+   FileZilla mot Loopias FTP. Behall mappstrukturen: css, typsnitt
+   och bilder ska ligga kvar som egna mappar.
+
+   Gloms inte: .htaccess borjar med punkt och ar dold i manga
+   program. I FileZilla: Server -> Tvinga visning av dolda filer.
+
+3. Oppna testadressen
+
+      http://omtankensrum.se.loopiadns.com
+
+   Den adressen ar Loopias egen forhandsvisning. Den fungerar aven
+   om domanen fortfarande pekar nagon annanstans, sa du kan testa
+   hela sidan utan att rora DNS och utan att nagon besokare marker
+   nagonting.
+
+   Testadressen kor utan SSL, alltsa http:// och inte https://.
+   Det ar normalt och gor ingenting under testet.
+
+4. Klicka igenom pa dator OCH i mobilen. Skicka lanken till Maria.
+
+
+SKARP LANSERING - FYRA SAKER ATT GORA
+-------------------------------------
+
+Nar Maria sagt ja och domanen pekar pa Loopia:
+
+1. NOINDEX BORT.  Varje .html-fil har hogst upp ett block som borjar
+   "TA BORT DE HAR TVA RADERNA". Ta bort raden
+      <meta name="robots" content="noindex, nofollow">
+   i alla sex filerna. Sa lange den ligger kvar kommer sidan aldrig
+   att synas i Google.
+
+2. ROBOTS.TXT.  Byt ut hela filen mot exakt det har:
+
+      User-agent: *
+      Allow: /
+
+      Sitemap: https://omtankensrum.se/sitemap.xml
+
+3. .HTACCESS.  Ta bort tecknet # framfor de fyra sista raderna i
+   filen. Da skickas alla besokare till https:// och till adressen
+   utan www.
+
+4. SSL.  Sla pa gratis SSL-certifikat for domanen i Loopias
+   kundzon. Gor det FORE steg 3, annars hamnar besokaren pa en
+   https-adress som annu inte fungerar.
+
+Anmal sedan sidan i Google Search Console och skicka in
+sitemap.xml. Da hittar Google den pa dagar i stallet for veckor.
+
+
+BOKNINGSFORMULARET
+------------------
+
+Formularet skickar ett mejl fran Loopias server till Marias
+inkorg. Ingen tredjepartstjanst, inga uppgifter sparade pa
+webbplatsen - precis det som integritetspolicyn lovar.
+
+Overst i skicka.php star tva adresser:
+
+   $MOTTAGARE = 'omtankensrum@gmail.com';   dit forfragningarna gar
+   $AVSANDARE = 'webb@omtankensrum.se';     avsandare
+
+Avsandaradressen MASTE ligga pa den egna domanen, annars stoppas
+mejlen som skrap. Skapa darfor e-postkontot webb@omtankensrum.se i
+Loopias kundzon innan lansering. Det behover aldrig lasas.
+
+Kommer inga mejl fram: titta forst i skrappostmappen, kontrollera
+sedan att kontot ovan finns.
+
+Nar bokningarna borjar rulla kan formularet bytas mot ett riktigt
+bokningssystem. Det ar da det ar vart pengarna, inte nu.
+
+
+ATT ANDRA I TEXT OCH PRISER
+---------------------------
+
+Texten ligger direkt i .html-filerna och kan andras i vilken
+textredigerare som helst - spara som UTF-8. Priser finns pa tva
+stallen: index.html (korten) och tjanster.html (prislistan). Andra
+pa bada.
+
+Infor prishojningen efter sex manader: 420 -> 480 och 520 -> 580,
+och ta bort raderna "Introduktionspris" i tjanster.html samt stycket
+"Om priserna".
+
+
+BILDERNA AR PLATSHALLARE
+------------------------
+
+bilder/rummet.jpg och bilder/maria.jpg ar INTE Maria och INTE
+Nytorgsgatan 24. De visar tonen som ska fotograferas. Byt ut dem mot
+riktiga foton innan sidan lanseras skarpt - samma filnamn, sa
+behover ingenting annat andras.
+
+   rummet.jpg   liggande, 1200 x 1020 px
+   maria.jpg    staende, 840 x 1008 px
+
+Byt ocksa bilder/og-bild.jpg om du vill ha ett foto i stallet for
+logotypen nar nagon delar lanken pa Facebook.
+
+
+ANNAT SOM BOR FYLLAS I FORE LANSERING
+-------------------------------------
+
+   - Organisationsnumret. Star som [ORGANISATIONSNUMMER] i
+     villkor.html, under Personuppgifter.
+   - Postnumret 116 40 i sidfoten ar gissat utifran Nytorgsgatan 24.
+     Kontrollera det.
+   - Instagram-lanken i sidfoten pekar pa instagram.com/omtankens_rum.
+     Stammer kontonamnet?
+   - Bekrafta med Maria att AromaTouch ska ligga kvar som "kommer
+     snart" pa tjanster.html.
+
+
+VAD SOM INTE FINNS AN
+---------------------
+
+Ingen besoksstatistik. Det ar ett medvetet val: utan statistikverktyg
+behovs ingen kakruta, och sidan foljer integritetspolicyn som den ar
+skriven. Vill Maria ha statistik senare gar det att lagga till ett
+verktyg som inte satter kakor - men da ska policyn uppdateras samtidigt.
+
+
+FILERNA
+-------
+
+   index.html      startsida
+   tjanster.html   tjanster och priser
+   boka.html       bokningsformular
+   villkor.html    villkor och integritetspolicy
+   tack.html       visas efter skickad forfragan
+   404.html        visas om en lank ar fel
+   skicka.php      tar emot formularet och mejlar det
+   css/            formgivningen, en enda fil
+   typsnitt/       Fraunces, Karla och Norican, 65 kB totalt
+   bilder/         foton, logotyp och ikoner
+   robots.txt      styr vad Google far titta pa
+   sitemap.xml     lista over sidorna, for Google
+   .htaccess       serverinstallningar

@@ -1,0 +1,4 @@
+# TESTVERSION - hindrar Google fran att hitta sidan.
+# Byt ut hela filen mot innehallet i LAS_MIG.txt infor skarp lansering.
+User-agent: *
+Disallow: /
