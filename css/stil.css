@@ -185,7 +185,9 @@ p:last-child { margin-bottom: 0; }
   padding-top: 14px; border-top: 1px solid var(--kant);
   font-weight: 600; color: var(--kastanj); font-size: .97rem;
 }
+.kort__fot { flex-wrap: wrap; flex-grow: 0 !important; }
 .kort__fot .punkt { color: var(--sandbrun); font-weight: 400; }
+.kort__intro { flex-basis: 100%; margin-top: -4px; font-size: .85rem; font-weight: 400; color: var(--sandbrun); }
 
 .etikett {
   display: inline-block; padding: 4px 11px; border-radius: 999px;

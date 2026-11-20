@@ -42,6 +42,7 @@
         <a href="index.html">Hem</a>
         <a href="index.html#om-mig">Om mig</a>
         <a href="tjanster.html">Tjänster &amp; priser</a>
+        <a href="villkor.html">Villkor</a>
         <a class="knapp knapp--liten" href="boka.html" aria-current="page">Boka en tid</a>
     </nav>
   </div>
@@ -83,15 +84,15 @@
       </div>
       <div class="falt">
         <label for="tid">När skulle du vilja komma?</label>
-        <input type="text" id="tid" name="tid" placeholder="Till exempel: tisdagar efter 18">
+        <input type="text" id="tid" name="tid" placeholder="Till exempel: tisdagar efter 17.30">
         <span class="hjalp">Jag tar emot måndag och tisdag från 17.30, samt varannan helg
           fredag till söndag.</span>
       </div>
       <div class="falt">
         <label for="meddelande">Något du vill att jag vet? (valfritt)</label>
-        <textarea id="meddelande" name="meddelande"></textarea>
-        <span class="hjalp">Du behöver inte skriva något om din hälsa här &mdash; det pratar vi
-          hellre om när vi ses.</span>
+        <span class="hjalp" id="meddelande-hjalp">Du behöver inte skriva något om din hälsa här
+          &mdash; det pratar vi hellre om när vi ses.</span>
+        <textarea id="meddelande" name="meddelande" aria-describedby="meddelande-hjalp"></textarea>
       </div>
 
       <div class="samtycke">
@@ -109,18 +110,12 @@
         <h3>Bra att veta</h3>
         <dl>
           <div><dt>Var</dt><dd>Nytorgsgatan 24, Södermalm. Distanshealing tar du emot hemma.</dd></div>
-          <div><dt>Framförhållning</dt><dd>24 timmar, eller 48 timmar för traditionell Reiki.</dd></div>
-          <div><dt>Betalning</dt><dd>Swish på plats. Presentkort finns. Friskvårdsbidrag går bra för Reiki.</dd></div>
-          <div><dt>Avbokning</dt><dd>Kostnadsfritt fram till 24 timmar innan.</dd></div>
+          <div><dt>Framförhållning</dt><dd>24 timmar för Reiki och distanshealing, 48 timmar för healing.</dd></div>
+          <div><dt>Betalning</dt><dd>Swish på plats. Presentkort finns. Friskvårdsbidrag går bra för
+            Reiki &ndash; stäm gärna av med din arbetsgivare innan du bokar.</dd></div>
+          <div><dt>Avbokning</dt><dd>Kostnadsfritt fram till 24 timmar innan.
+            <a href="villkor.html#avbokning">Läs alla bokningsregler</a>.</dd></div>
         </dl>
-      </div>
-      <div class="ruta ruta--terra">
-        <h3>Hellre prata först?</h3>
-        <p>Ring eller skicka ett sms så hörs vi. Det finns inga dumma frågor.</p>
-        <p style="margin-top:12px">
-          <a href="tel:+46736108074">073-610 80 74</a><br>
-          <a href="mailto:omtankensrum@gmail.com">omtankensrum@gmail.com</a>
-        </p>
       </div>
     </aside>
   </div>
